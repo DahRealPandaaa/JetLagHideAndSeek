@@ -17,10 +17,7 @@ import {
 } from "../lib/context";
 import { useStore } from "@nanostores/react";
 import {
-    MatchingQuestionComponent,
-    MeasuringQuestionComponent,
     RadiusQuestionComponent,
-    TentacleQuestionComponent,
     ThermometerQuestionComponent,
 } from "./QuestionCards";
 import * as turf from "@turf/turf";
@@ -47,30 +44,6 @@ export const QuestionSidebar = () => {
                         case "thermometer":
                             return (
                                 <ThermometerQuestionComponent
-                                    data={question.data}
-                                    key={question.key}
-                                    questionKey={question.key}
-                                />
-                            );
-                        case "tentacles":
-                            return (
-                                <TentacleQuestionComponent
-                                    data={question.data}
-                                    key={question.key}
-                                    questionKey={question.key}
-                                />
-                            );
-                        case "matching":
-                            return (
-                                <MatchingQuestionComponent
-                                    data={question.data}
-                                    key={question.key}
-                                    questionKey={question.key}
-                                />
-                            );
-                        case "measuring":
-                            return (
-                                <MeasuringQuestionComponent
                                     data={question.data}
                                     key={question.key}
                                     questionKey={question.key}
@@ -135,66 +108,6 @@ export const QuestionSidebar = () => {
                                 }}
                             >
                                 Add Thermometer
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton
-                                onClick={() => {
-                                    const map = leafletMapContext.get();
-                                    if (!map) return;
-
-                                    const center = map.getCenter();
-
-                                    addQuestion({
-                                        id: "tentacles",
-                                        data: {
-                                            lat: center.lat,
-                                            lng: center.lng,
-                                        },
-                                    });
-                                }}
-                            >
-                                Add Tentacles
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton
-                                onClick={() => {
-                                    const map = leafletMapContext.get();
-                                    if (!map) return;
-
-                                    const center = map.getCenter();
-
-                                    addQuestion({
-                                        id: "matching",
-                                        data: {
-                                            lat: center.lat,
-                                            lng: center.lng,
-                                        },
-                                    });
-                                }}
-                            >
-                                Add Matching
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton
-                                onClick={() => {
-                                    const map = leafletMapContext.get();
-                                    if (!map) return;
-
-                                    const center = map.getCenter();
-
-                                    addQuestion({
-                                        id: "measuring",
-                                        data: {
-                                            lat: center.lat,
-                                            lng: center.lng,
-                                        },
-                                    });
-                                }}
-                            >
-                                Add Measuring
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                         {!$autoSave && (

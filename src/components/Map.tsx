@@ -428,42 +428,6 @@ export const Map = ({ className }: { className?: string }) => {
                             });
                         },
                     },
-                    {
-                        text: "Add Tentacles",
-                        callback: (e: any) => {
-                            addQuestion({
-                                id: "tentacles",
-                                data: {
-                                    lat: e.latlng.lat,
-                                    lng: e.latlng.lng,
-                                },
-                            });
-                        },
-                    },
-                    {
-                        text: "Add Matching",
-                        callback: (e: any) => {
-                            addQuestion({
-                                id: "matching",
-                                data: {
-                                    lat: e.latlng.lat,
-                                    lng: e.latlng.lng,
-                                },
-                            });
-                        },
-                    },
-                    {
-                        text: "Add Measuring",
-                        callback: (e: any) => {
-                            addQuestion({
-                                id: "measuring",
-                                data: {
-                                    lat: e.latlng.lat,
-                                    lng: e.latlng.lng,
-                                },
-                            });
-                        },
-                    },
                 ]}
             >
                 <TileLayer

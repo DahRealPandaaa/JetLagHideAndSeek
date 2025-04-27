@@ -15,22 +15,24 @@ export const mapGeoLocation = persistentAtom<OpenStreetMap>(
     "mapGeoLocation",
     {
         geometry: {
-            coordinates: [36.5748441, 139.2394179],
+            coordinates: [52.3730796,4.8924534],
             type: "Point",
         },
         type: "Feature",
         properties: {
             osm_type: "R",
-            osm_id: 382313,
-            extent: [45.7112046, 122.7141754, 20.2145811, 154.205541],
-            country: "Japan",
+            osm_id: 271110,
+            extent: [52.4310638,4.7287776,52.2781742,5.0791622],
+            country: "Netherlands",
             osm_key: "place",
-            countrycode: "JP",
-            osm_value: "country",
-            name: "Japan",
-            type: "country",
+            countrycode: "NL",
+            osm_value: "city",
+            name: "Amsterdam",
+            type: "city",
+            state: "North Holland",
         },
     },
+
     {
         encode: JSON.stringify,
         decode: JSON.parse,
@@ -60,7 +62,7 @@ export const questionModified = (..._: any[]) => {
 
 export const leafletMapContext = atom<Map | null>(null);
 
-export const defaultUnit = persistentAtom<Units>("defaultUnit", "miles");
+export const defaultUnit = persistentAtom<Units>("defaultUnit", "kilometers");
 export const highlightTrainLines = persistentAtom<boolean>(
     "highlightTrainLines",
     false,
@@ -82,7 +84,7 @@ export const hiderMode = persistentAtom<
 export const triggerLocalRefresh = atom<number>(0);
 export const displayHidingZones = persistentAtom<boolean>(
     "displayHidingZones",
-    false,
+    true,
     {
         encode: JSON.stringify,
         decode: JSON.parse,
@@ -90,7 +92,7 @@ export const displayHidingZones = persistentAtom<boolean>(
 );
 export const displayHidingZonesOptions = persistentAtom<string[]>(
     "displayHidingZonesOptions",
-    ["[railway=station]"],
+    ["[railway=station]", "[railway=tram_stop]", "[railway=stop]"],
     {
         encode: JSON.stringify,
         decode: JSON.parse,
