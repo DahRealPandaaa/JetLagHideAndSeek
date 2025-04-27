@@ -285,12 +285,12 @@ const bufferedDeterminer = _.memoize(
             );
             buffer = turf.simplify(
                 turf.buffer(buffer, distance, {
-                    units: "miles",
+                    units: "kilometers",
                 })!,
                 { tolerance: 0.001 },
             );
             distance = turf.pointToPolygonDistance(questionPoint, buffer, {
-                units: "miles",
+                units: "kilometers",
                 method: "geodesic",
             });
         }
@@ -416,14 +416,14 @@ export const hiderifyMeasuring = async (question: MeasuringQuestion) => {
         const nearest = turf.nearestPoint(seeker, points as any);
 
         const distance = turf.distance(seeker, nearest, {
-            units: "miles",
+            units: "kilometers",
         });
 
         const hider = turf.point([$hiderMode.longitude, $hiderMode.latitude]);
         const hiderNearest = turf.nearestPoint(hider, points as any);
 
         const hiderDistance = turf.distance(hider, hiderNearest, {
-            units: "miles",
+            units: "kilometers",
         });
 
         question.hiderCloser = hiderDistance < distance;

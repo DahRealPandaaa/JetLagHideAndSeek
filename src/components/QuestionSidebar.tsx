@@ -90,7 +90,7 @@ export const QuestionSidebar = () => {
                                         5,
                                         90,
                                         {
-                                            units: "miles",
+                                            units: "kilometers",
                                         },
                                     );
 

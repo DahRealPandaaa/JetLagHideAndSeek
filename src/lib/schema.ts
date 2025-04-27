@@ -63,7 +63,7 @@ const ordinaryBaseQuestionSchema = z.object({
 
 const radiusQuestionSchema = ordinaryBaseQuestionSchema.extend({
     radius: z.number().min(0, "You cannot have a negative radius").default(50),
-    unit: unitsSchema.default("miles"),
+    unit: unitsSchema.default("kilometers"),
     within: z.boolean().default(true),
 });
 
@@ -82,7 +82,7 @@ const tentacleLocationsSchema = z.union([
 
 const baseTentacleQuestionSchema = ordinaryBaseQuestionSchema.extend({
     radius: z.number().min(0, "You cannot have a negative radius").default(15),
-    unit: unitsSchema.default("miles"),
+    unit: unitsSchema.default("kilometers"),
     location: z
         .union([
             z.object({
